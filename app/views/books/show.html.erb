@@ -1,6 +1,6 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
-    <%= render 'books/user' %>
+    <%= render 'books/user', user: @user, book_new: @book_new %>
 
     <div class="col-md-8 offset-md-1">
   		<h2>Book detail</h2>
@@ -9,7 +9,7 @@
   		    <tr>
   		      <td>
   		        <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpeg" %>
-  		        <%= link_to current_user.name, user_path(current_user) %>
+  		        <%= link_to @user.name, user_path(@user.id) %>
   		      </td>
   		      <td>
   		        <%= link_to @book.title, book_path(@book.id) %>
@@ -24,7 +24,7 @@
             </td>
             <td>
               <% if @book.user == current_user %>
-               <%= link_to "Dstroy", book_path(@book), method: :delete %>
+               <%= link_to "Dstroy", book_path(@book), method: :delete, data: {confirm: "本当に削除しますか？"} %>
               <% end %>
             </td>
           </tr>
