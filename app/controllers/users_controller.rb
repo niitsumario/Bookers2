@@ -11,9 +11,6 @@ class UsersController < ApplicationController
     @book = @user.books
   end
 
-  def create
-  end
-
   def edit
     @user = User.find(params[:id])
     if @user != current_user
