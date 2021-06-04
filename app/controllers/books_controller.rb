@@ -19,6 +19,18 @@ class BooksController < ApplicationController
     end
   end
 
+  def following
+    @user  = User.find(params[:id])
+    @users = @user.followings
+    render 'show_follow'
+  end
+
+  def followers
+    @user  = User.find(params[:id])
+    @users = @user.followers
+    render 'show_follower'
+  end
+
   def show
     @book = Book.find(params[:id])
     @user = @book.user
