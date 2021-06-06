@@ -14,8 +14,8 @@
           </tr>
         </tbody>
       </table>
-      <%= render 'users/stats' %>
-      <%= render 'users/follow_form' %>
+      <%= render 'users/stats', user: @user %>
+      <%= render 'users/follow_form', user: @user %>
       <div class="row">
         <a><%= link_to "", edit_user_path(user), class:"btn btn-outline-secondary btn-block fas fa-user-cog" %>
         </a>
